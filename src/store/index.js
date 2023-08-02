@@ -1,8 +1,2 @@
-import { configureStore } from '@reduxjs/toolkit';
-import missionsReducer from './missionsSlice';
-
-export default configureStore({
-	reducer: {
-		missions: missionsReducer,
-	}
-})
+export * from './store';
+export * from './services/spacexdataApi';

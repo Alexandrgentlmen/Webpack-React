@@ -2,12 +2,22 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const spacexdataApi = createApi({
 	reducerPath: 'spacexdataApi',
-	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.spacexdata.com/v4/' }),
+	tagTypes: ['lunches'],
+	baseQuery: fetchBaseQuery({
+		baseUrl: 'https://api.spacexdata.com/v4/'
+	}),
+
 	endpoints: (builder) => ({
-		getSpacexdata: builder.query({
-			query: (name) => `missions/${name}`,
+		getSpacexdata: builder.mutation({
+			query: () => ({
+				url: `launches/query`,
+				method: 'POST',
+				body: {
+					page: 1,
+				}
+			})
 		}),
 	}),
 });
 
-export const { useGetSpacexdataQuery } = spacexdataApi;
+export const { useGetSpacexdataMutation } = spacexdataApi;

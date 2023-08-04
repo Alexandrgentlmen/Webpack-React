@@ -1,5 +1,6 @@
 let path = require('path');
-let MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// let MiniCssExtractPlugin = require('mini-css-extract-plugin');
+let HtmlWebPackPlugin = require("html-webpack-plugin");
 
 let conf = {
 	entry: './src/index.js',
@@ -22,13 +23,20 @@ let conf = {
 			},
 			{
 				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader']
+				include: path.resolve(__dirname, 'src'),
+				use: [
+					// MiniCssExtractPlugin.loader,
+					'style-loader', 'css-loader', 'postcss-loader',
+				]
 			}
 		]
 	},
 	plugins: [
-		new MiniCssExtractPlugin({
-			filename: 'main.css'
+		// new MiniCssExtractPlugin({
+		// 	filename: 'main.css',
+		// }),
+		new HtmlWebPackPlugin({
+			template: path.join(__dirname, './index.html'),
 		})
 	]
 };

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { spacexdataApi } from './services/spacexdataApi.js'
+import { spacexApi } from './services/spacexApi'
 import missionsReducer from './missionsSlice.js';
 
 export const store = configureStore({
 	reducer: {
-		[spacexdataApi.reducerPath]: spacexdataApi.reducer,
+		[spacexApi.reducerPath]: spacexApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(spacexdataApi.middleware),
+		getDefaultMiddleware().concat(spacexApi.middleware),
 });

@@ -22,6 +22,11 @@ let conf = {
 				exclude: '/node_modules/'
 			},
 			{
+				test: /\.jsx?$/, // обновляем регулярное выражение для поддержки jsx
+				loader: 'babel-loader',
+				exclude: '/node_modules/',
+			},
+			{
 				test: /\.css$/,
 				include: path.resolve(__dirname, 'src'),
 				use: [

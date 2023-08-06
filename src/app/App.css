@@ -44,13 +44,18 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+  margin: 0;
+  padding-top: 10px;
+}
 .paragraph {
-  flex: 0;
+  font-size: 14px;
   margin: 0;
   padding: 0;
 }
 .paragraph:not(:last-child) {
-  padding-bottom: 20px;
+  padding-bottom: 8px;
 }
 .image {
   max-height: 200px;

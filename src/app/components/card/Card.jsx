@@ -5,13 +5,9 @@ import { dateEditer } from '../../../lib/utils';
 
 const Card = ({ luncheDetails }) => {
   const { details, name, date_local, rocket } = luncheDetails;
-  const {
-    data = [],
-    isLoading,
-    isFetching,
-    isError,
-  } = useGetImgRocketQuery(rocket);
-  const dateLunchArr = dateEditer(date_local);
+  const { data = [], isLoading } = useGetImgRocketQuery(rocket);
+  const dateLunche = dateEditer(date_local);
+
   if (isLoading) return <Loading />;
 
   return (
@@ -25,13 +21,13 @@ const Card = ({ luncheDetails }) => {
         </li>
         <li className="paragraph">
           <span className="paragraph">
-            <b>Days lunch </b>
-            {dateLunchArr[0]}
+            <b>Day: </b>
+            {dateLunche[0]}
           </span>
 
           <span className="paragraph">
-            <b>, lunche at </b>
-            {dateLunchArr[1]}
+            <b> at </b>
+            {dateLunche[1]}
           </span>
         </li>
         <li className="paragraph">

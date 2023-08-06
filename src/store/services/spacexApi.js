@@ -8,33 +8,8 @@ export const spacexApi = createApi({
 	}),
 
 	endpoints: builder => ({
-		getAllLunches: builder.query({
-			query: () => `launches`,
-		}),
 		getImgRocket: builder.query({
 			query: (id) => `rockets/${id}`,
-		}),
-		getLunches: builder.mutation({
-			query: () => ({
-				url: `launches/query`,
-				method: 'POST',
-				body: {
-					query: {
-						date_utc: {
-							$gte: "2015-01-01T00:00:00.000Z",
-							$lte: "2019-01-01T00:00:00.000Z"
-						},
-						success: true,
-					},
-					options: {
-						page: 1,
-						limit: 8
-					}
-				},
-				headers: {
-					'Content-Type': 'application/json; charset=UTF-8',
-				},
-			})
 		}),
 		updateLunches: builder.mutation({
 			query(params) {
@@ -67,4 +42,4 @@ export const spacexApi = createApi({
 	}),
 });
 
-export const { useGetAllLunchesQuery, useGetImgRocketQuery, useUpdateLunchesMutation, useGetLunchesMutation } = spacexApi;
+export const { useGetImgRocketQuery, useUpdateLunchesMutation } = spacexApi;

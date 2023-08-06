@@ -70,3 +70,22 @@
 .option {
   text-align: center;
 }
+.page-item {
+  margin: 10px;
+
+  text-align: center;
+}
+.active-btn {
+  bottom: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4b65d8;
+}
+.pagination {
+  justify-content: center;
+  display: flex;
+}
+.page-btn {
+  line-height: 16px;
+  cursor: pointer;
+}

@@ -28,11 +28,19 @@ img {
 
 a {
   text-decoration: none;
+  color: #000;
+  cursor: pointer;
 }
 .site-container {
   margin: 0 auto;
   min-height: 100%;
   max-width: 1440px;
+}
+.btn-reset {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .list-reset {

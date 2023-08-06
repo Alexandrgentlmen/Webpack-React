@@ -62,6 +62,7 @@
 }
 .submit-btn {
   display: inline;
+  padding: 0 10px;
 }
 
 .label {

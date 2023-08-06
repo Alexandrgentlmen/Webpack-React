@@ -29,7 +29,7 @@ const SortForm = ({
           </option>
         </select>
       </label>
-      <button className="btn-reset submit-btn" type="submit">
+      <button className="submit-btn" type="submit">
         OK
       </button>
     </form>

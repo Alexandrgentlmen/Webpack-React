@@ -1,32 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchLunches } from '../store/lunchesSlice';
-// import { useGetAllLunchesQuery, useGetLunchesMutation } from '../store/services/spacexApi';
+import { useUpdateLunchesMutation } from '../store/services/spacexApi';
+import { List } from './components/list/List.jsx';
+import { Loading } from './components/loading/Loading.jsx';
+import { Pagination } from './components/pagination/Pagination.jsx';
+import { SortForm } from './components/sort-form/SortForm.jsx';
 
 
 function App() {
-	// const [loadLunchesData, result] = useGetLunchesMutation();
+	const [selectedSort, setSelectedSort] = useState('desc');
+	const [loadLunchesData, { data }] = useUpdateLunchesMutation();
+	// const [loadLunchesData, { data }] = useUpdateLunchesMutation();
 	// const { data: lunches, isLoading, isFetching, isError } = useGetAllLunchesQuery();
-	const dispatch = useDispatch();
-	const lunches = useSelector(state => state.lunches.lunches);
-	console.log("state.lunches", lunches)
-	useEffect(() => {
-		dispatch(fetchLunches())
-	}, [dispatch]);
 
+	useEffect(() => {
+		loadLunchesData({ page: 1, sort: selectedSort })
+	}, []);
+
+	console.log('App', data);
 	return (
-		<div className="App">
-			<h1>SpaceX project</h1>
-			<ul>
-				{
-					lunches?.map(item => (
-						<li key={crypto.randomUUID()} >
-							{item.details}
-						</li>
-					))
-				}
-			</ul>
+		<div className="App site-container">
+			<h1 className="centered">SpaceX</h1>
+			< SortForm
+				loadLunchesData={loadLunchesData}
+				changeSelected={setSelectedSort}
+				valueSelected={selectedSort}
+				currentPage={data?.page}
+			/>
+			{data ? < List lunchesData={data} /> : < Loading />}
+			{/* <Pagination currentPage={data?.page}  countPages={data?.totalPages} /> */}
 		</div >
 	);
 }

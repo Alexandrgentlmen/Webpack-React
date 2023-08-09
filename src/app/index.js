@@ -5,7 +5,7 @@ import { List } from './../components/list/List';
 import { Loading } from './../components/loading/Loading';
 import { Pagination } from './../components/pagination/Pagination';
 import { SortForm } from './../components/sort-form/SortForm';
-import './App.scss';
+import './App.css';
 
 function App() {
 	const [selectedSort, setSelectedSort] = useState('desc');

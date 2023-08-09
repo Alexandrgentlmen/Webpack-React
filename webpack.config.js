@@ -1,34 +1,21 @@
 let path = require('path');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
-let HtmlWebPackPlugin = require("html-webpack-plugin");
+
 
 const stylesHandler = 'style-loader';
 
 let conf = {
 	entry: './src/index.js',
 	output: {
-		path: path.join(__dirname, 'dist'), // Куда делать оброку
-		filename: '[name].js', // Шаблон для названия файлов
-		clean: true, // Очистить ./dist перед сборкой
-	},
-	resolve: {
-		extensions: ['.js', '.jsx'], // расширения по умолчанию если не указаны в import
-		modules: ['./', 'node_modules'], // Где искать файлы подключаемых модулей (пакетов)
+		path: path.join(__dirname, './dist'),
+		filename: 'main.js',
+		publicPath: '/dist/',
 	},
 	devServer: {
 		static: {
 			directory: path.join(__dirname, '.'),
 		}
 	},
-	plugins: [
-		new MiniCssExtractPlugin(), // Плагин для вытаскивания собранных стилей в отдельный файл
-		new HtmlWebPackPlugin({
-			template: './index.html',
-			filename: './index.html',
-			title: 'Simple SPA',
-			base: '/',
-		}),
-	],
 	module: {
 		rules: [
 			{
@@ -88,6 +75,11 @@ let conf = {
 			},
 		]
 	},
+	plugins: [
+		new MiniCssExtractPlugin({
+			filename: 'main.css'
+		})
+	]
 };
 
 module.exports = (env, options) => {

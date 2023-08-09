@@ -1,0 +1,23 @@
+.image {
+  max-height: 200px;
+}
+
+.resetList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.paragraph {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.paragraph:not(:last-child) {
+  padding-bottom: 8px;
+}
+
+.centered {
+  text-align: center;
+}

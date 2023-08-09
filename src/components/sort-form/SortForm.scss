@@ -1,0 +1,18 @@
+.SortForm {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+}
+
+.SortForm-label {
+  margin: 0px 20px;
+}
+
+.SortForm-option {
+  text-align: center;
+}
+
+.SortForm-submit {
+  display: inline;
+  padding: 0 10px;
+}

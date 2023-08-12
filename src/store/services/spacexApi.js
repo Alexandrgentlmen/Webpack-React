@@ -1,4 +1,8 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 
 export const spacexApi = createApi({
 	reducerPath: 'spacexApi',
@@ -11,7 +15,7 @@ export const spacexApi = createApi({
 		getImgRocket: builder.query({
 			query: (id) => `rockets/${id}`,
 		}),
-		updateLunches: builder.mutation({
+		updateLaunches: builder.mutation({
 			query(params) {
 
 				return {
@@ -42,4 +46,4 @@ export const spacexApi = createApi({
 	}),
 });
 
-export const { useGetImgRocketQuery, useUpdateLunchesMutation } = spacexApi;
+export const { useGetImgRocketQuery, useUpdateLaunchesMutation } = spacexApi;

@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { cn as bem } from '@bem-react/classname';
 
-const Pagination = ({ currentPage, countPages, changePaginate }) => {
+const Pagination = React.memo(function Pagination({ countPages }) {
+	const [page, setPage] = useState(1);
 	const cn = bem('Pagination');
 	const pageNumbers = [];
 	for (let i = 1; i <= countPages; i++) {
@@ -12,12 +14,12 @@ const Pagination = ({ currentPage, countPages, changePaginate }) => {
 		<>
 			<ul className={`${cn()} ${cn('resetList')}`}>
 				{pageNumbers.map((number) => {
-					if (currentPage !== number) {
+					if (page !== number) {
 						return (
 							<li className={cn('pageItem')} key={number}>
 								<button
 									className={`${cn('page')} ${cn('btnReset')}`}
-									onClick={() => changePaginate(number)}
+									onClick={() => setPage(number)}
 								>
 									{number}
 								</button>
@@ -38,5 +40,5 @@ const Pagination = ({ currentPage, countPages, changePaginate }) => {
 			</ul>
 		</>
 	);
-};
+});
 export { Pagination };

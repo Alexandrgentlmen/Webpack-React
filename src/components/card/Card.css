@@ -1,14 +1,14 @@
-.image {
+.Card-image {
   max-height: 200px;
 }
 
-.resetList {
+.Card-resetList {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.paragraph {
+.Card-paragraph {
   font-size: 14px;
   margin: 0;
   padding: 0;
@@ -18,6 +18,6 @@
   padding-bottom: 8px;
 }
 
-.centered {
+.Card-centered {
   text-align: center;
 }

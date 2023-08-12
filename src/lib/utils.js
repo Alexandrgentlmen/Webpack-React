@@ -1,5 +1,5 @@
 
 
-export function dateEditer(string) {
+export function dateEditor(string) {
 	return string.split('T');
 }

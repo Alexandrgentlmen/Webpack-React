@@ -1,47 +1,48 @@
 import React from 'react';
 import { useGetImgRocketQuery } from '../../store/services/spacexApi.js';
 import { Loading } from './../loading/Loading';
-import { dateEditer } from './../../lib/utils';
 
-import styles from './Card.module.scss';
+import { cn as bem } from '@bem-react/classname';
+import { dateEditor } from './../../lib/utils';
 
+const Card = React.memo(function Card(props) {
 
-const Card = ({ luncheDetails }) => {
-	const { details, name, date_local, rocket } = luncheDetails;
-	const { data = [], isLoading } = useGetImgRocketQuery(rocket);
-	const dateLunche = dateEditer(date_local);
+	const { data = [], isLoading } = useGetImgRocketQuery(props.launchDetails.rocket);
+	const dateLaunch = dateEditor(props.launchDetails.date_local);
+	const cn = bem('Card');
 
 	if (isLoading) return <Loading />;
 
 	return (
-		<>
-			{luncheDetails && (
+		<div className={cn()}>
+			{launchDetails && (
 				<img
-					className={styles.image}
+					className={cn('image')}
 					src={data.flickr_images[1]}
 					alt="rocket image"
 				/>
 			)}
-			<ul className={styles.resetList}>
-				<li className={`${styles.paragraph} ${styles.centered}`}>
-					<h2>{name}</h2>
+			<ul className={cn('resetList')}>
+				<li className={`${cn('paragraph')} ${cn('centered')}`}>
+					<h2>{props.launchDetails.name}</h2>
 				</li>
-				<li className={styles.paragraph}>
-					<span className={styles.paragraph}>
+				<li className={cn('paragraph')}>
+					<span className={cn('paragraph')}>
 						<b>Day: </b>
-						{dateLunche[0]}
+						{props.launchDetails.dateLaunch[0]}
 					</span>
 
-					<span className={styles.paragraph}>
+					<span className={cn('paragraph')}>
 						<b> at </b>
-						{dateLunche[1]}
+						{dateLaunch[1]}
 					</span>
 				</li>
-				<li className={styles.paragraph}>
-					<h3>{details}</h3>
+				<li className={cn('paragraph')}>
+					<h3>{props.launchDetails.details}</h3>
 				</li>
 			</ul>
-		</>
+		</div>
 	);
-};
+});
+
 export { Card };

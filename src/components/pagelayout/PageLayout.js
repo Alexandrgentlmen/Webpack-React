@@ -1,8 +1,8 @@
 import React from 'react';
-import { memo } from "react";
+
 import { cn as bem } from '@bem-react/classname';
 
-function PageLayout({ head, children }) {
+const PageLayout = React.memo(function PageLayout({ head, children }) {
 
 	const cn = bem('PageLayout');
 
@@ -16,6 +16,6 @@ function PageLayout({ head, children }) {
 			</div>
 		</div>
 	);
-}
+});
 
-export default memo(PageLayout);
+export { PageLayout };

@@ -2,18 +2,18 @@ import React from 'react';
 
 import { cn as bem } from '@bem-react/classname';
 
-const SortForm = ({
-	loadLunchesData,
-	changeSelected,
-	valueSelected,
+const SortForm = React.memo(function SortForm({
+	loadLaunchesData,
+	// changeSelected,
+	// valueSelected,
 	currentPage,
-}) => {
-
+}) {
+	const [selectedSort, setSelectedSort] = useState('desc');
 	const cn = bem('SortForm');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		loadLunchesData({ page: currentPage, sort: valueSelected });
+		loadLaunchesData({ page: currentPage, sort: selectedSort });
 	};
 
 	return (
@@ -23,7 +23,7 @@ const SortForm = ({
 				<select
 					name="selectSort"
 					value={valueSelected}
-					onChange={(e) => changeSelected(e.target.value)}
+					onChange={(e) => setSelectedSort(e.target.value)}
 				>
 					<option className={cn('option')} value="desc">
 						убыванию
@@ -38,5 +38,5 @@ const SortForm = ({
 			</button>
 		</form>
 	);
-};
+});
 export { SortForm };

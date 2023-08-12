@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { cn as bem } from '@bem-react/classname';
 
@@ -22,7 +22,7 @@ const SortForm = React.memo(function SortForm({
 				Сортировка по:&nbsp;
 				<select
 					name="selectSort"
-					value={valueSelected}
+					value={selectedSort}
 					onChange={(e) => setSelectedSort(e.target.value)}
 				>
 					<option className={cn('option')} value="desc">

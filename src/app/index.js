@@ -11,11 +11,11 @@ import { PageLayout } from '../components/pagelayout/PageLayout';
 function App() {
 	// const [selectedSort, setSelectedSort] = useState('desc');
 	// const [page, setPage] = useState(1);
-	useEffect(() => {
-		loadLaunchesData({ page: page, sort: selectedSort })
-	}, [page]);
-
 	const [loadLaunchesData, { data }] = useUpdateLaunchesMutation();
+
+	useEffect(() => {
+		loadLaunchesData({ page: 1, sort: 'desc' })
+	}, []);
 
 	// const changePaginate = (page) => {
 	// 	setPage(page)

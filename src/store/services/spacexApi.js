@@ -30,7 +30,7 @@ export const spacexApi = createApi({
 							success: true,
 						},
 						options: {
-							page: params.page,
+							page: params.page || 1,
 							limit: 8,
 							'sort': {
 								'date_utc': params.sort,

@@ -15,7 +15,7 @@ const Card = React.memo(function Card(props) {
 
 	return (
 		<div className={cn()}>
-			{launchDetails && (
+			{props.launchDetails && (
 				<img
 					className={cn('image')}
 					src={data.flickr_images[1]}
@@ -29,7 +29,7 @@ const Card = React.memo(function Card(props) {
 				<li className={cn('paragraph')}>
 					<span className={cn('paragraph')}>
 						<b>Day: </b>
-						{props.launchDetails.dateLaunch[0]}
+						{dateLaunch[0]}
 					</span>
 
 					<span className={cn('paragraph')}>

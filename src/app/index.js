@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useUpdateLaunchesMutation } from '../store/services/spacexApi';
 import { Head } from '../components/head/Head';
 import { List } from './../components/list/List';

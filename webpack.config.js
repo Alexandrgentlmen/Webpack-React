@@ -7,7 +7,7 @@ let conf = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		// publicPath: '/dist/'
+		// publicPath: '/dist/',
 		filename: '[name]_[hash].js', // Шаблон для названия файлов
 		clean: true, // Очистить ./dist перед сборкой
 	},

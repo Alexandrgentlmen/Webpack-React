@@ -1,6 +1,7 @@
 {
   "name": "webpack-react",
   "version": "1.0.0",
+  "homepage": "https://github.com/Alexandrgentlmen.io/Webpack-React",
   "description": "",
   "main": "index.js",
   "scripts": {
